@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:fixnum/fixnum.dart';
 import 'package:grpc/grpc.dart' as grpc;
 import 'package:grpc_hive_demo/src/common.dart';
@@ -32,6 +34,13 @@ class Server {
     final server = grpc.Server([GrpcHiveDemoService(userServiceDBImpl)]);
     await server.serve(address: '127.0.0.1', port: 8080);
     print('Server listening on port ${server.port}...');
+
+    ProcessSignal.sigint.watch().listen((ProcessSignal signal) async {
+      print("Exiting...");
+      await server.shutdown().then((_) => print("Server shutdown."));
+      await Hive.close().then((_) => print("Boxes all closed."));
+      exit(0);
+    });
   }
 }
 
