@@ -1,4 +1,4 @@
-import 'package:grpc_test_demo/src/generated/grpc_test_demo.pb.dart';
+import 'package:grpc_hive_demo/src/generated/grpc_hive_demo.pb.dart';
 import 'package:hive/hive.dart';
 
 abstract class UserServiceDB {

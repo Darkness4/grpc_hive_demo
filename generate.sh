@@ -1,0 +1,1 @@
+protoc -I protos/ protos/grpc_hive_demo.proto --dart_out=grpc:lib/src/generated

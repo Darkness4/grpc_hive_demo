@@ -1,13 +1,13 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.example.grpc_test_demo";
-option java_outer_classname = "GrpcTestDemo";
+option java_package = "com.example.grpc_hive_demo";
+option java_outer_classname = "GrpcHiveDemo";
 option objc_class_prefix = "GTD";
 
-package grpctestdemo;
+package grpchivedemo;
 
-service GrpcTestDemo {
+service GrpcHiveDemo {
   rpc GetUser(Username) returns (User) {}
 
   rpc GetAll(Empty) returns (stream User) {}

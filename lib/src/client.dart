@@ -2,12 +2,12 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:grpc/grpc.dart';
-import 'package:grpc_test_demo/src/generated/grpc_test_demo.pbgrpc.dart';
+import 'package:grpc_hive_demo/src/generated/grpc_hive_demo.pbgrpc.dart';
 import 'package:rxdart/rxdart.dart';
 
 class Client {
   ClientChannel channel;
-  GrpcTestDemoClient stub;
+  GrpcHiveDemoClient stub;
 
   Future<void> main(List<String> args) async {
     // Setup
@@ -16,7 +16,7 @@ class Client {
       port: 8080,
       options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
     );
-    stub = GrpcTestDemoClient(
+    stub = GrpcHiveDemoClient(
       channel,
       options: CallOptions(timeout: const Duration(seconds: 60)),
     );

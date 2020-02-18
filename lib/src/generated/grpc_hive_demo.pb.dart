@@ -1,6 +1,6 @@
 ///
 //  Generated code. Do not modify.
-//  source: grpc_test_demo.proto
+//  source: grpc_hive_demo.proto
 //
 // @dart = 2.3
 // ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
@@ -11,7 +11,7 @@ import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class Username extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('Username', package: const $pb.PackageName('grpctestdemo'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('Username', package: const $pb.PackageName('grpchivedemo'), createEmptyInstance: create)
     ..aOS(1, 'username')
     ..hasRequiredFields = false
   ;
@@ -42,7 +42,7 @@ class Username extends $pb.GeneratedMessage {
 }
 
 class User extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('User', package: const $pb.PackageName('grpctestdemo'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('User', package: const $pb.PackageName('grpchivedemo'), createEmptyInstance: create)
     ..aInt64(1, 'uid')
     ..aOS(2, 'username')
     ..aOB(3, 'isAdmin')
@@ -93,7 +93,7 @@ class User extends $pb.GeneratedMessage {
 }
 
 class Empty extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('Empty', package: const $pb.PackageName('grpctestdemo'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('Empty', package: const $pb.PackageName('grpchivedemo'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 

@@ -1,7 +1,7 @@
 import 'package:fixnum/fixnum.dart';
 import 'package:grpc/grpc.dart' as grpc;
-import 'package:grpc_test_demo/src/common.dart';
-import 'package:grpc_test_demo/src/generated/grpc_test_demo.pbgrpc.dart';
+import 'package:grpc_hive_demo/src/common.dart';
+import 'package:grpc_hive_demo/src/generated/grpc_hive_demo.pbgrpc.dart';
 import 'package:hive/hive.dart';
 
 Future<void> initializeBox(Box box) async {
@@ -26,10 +26,10 @@ Future<void> initializeBox(Box box) async {
   );
 }
 
-class GrpcTestDemoService extends GrpcTestDemoServiceBase {
+class GrpcHiveDemoService extends GrpcHiveDemoServiceBase {
   final UserServiceDB userServiceDB;
 
-  GrpcTestDemoService(this.userServiceDB);
+  GrpcHiveDemoService(this.userServiceDB);
 
   @override
   Stream<User> getAll(grpc.ServiceCall call, Empty request) {
@@ -49,7 +49,7 @@ class Server {
     final box = await Hive.openBox<User>('userBox');
     await initializeBox(box);
     final userServiceDBImpl = UserServiceDBImpl(box);
-    final server = grpc.Server([GrpcTestDemoService(userServiceDBImpl)]);
+    final server = grpc.Server([GrpcHiveDemoService(userServiceDBImpl)]);
     await server.serve(address: '127.0.0.1', port: 8080);
     print('Server listening on port ${server.port}...');
   }
