@@ -18,6 +18,10 @@ class GrpcTestDemoClient extends $grpc.Client {
       '/grpctestdemo.GrpcTestDemo/GetUser',
       ($0.Username value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.User.fromBuffer(value));
+  static final _$getAll = $grpc.ClientMethod<$0.Empty, $0.User>(
+      '/grpctestdemo.GrpcTestDemo/GetAll',
+      ($0.Empty value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.User.fromBuffer(value));
 
   GrpcTestDemoClient($grpc.ClientChannel channel, {$grpc.CallOptions options})
       : super(channel, options: options);
@@ -27,6 +31,13 @@ class GrpcTestDemoClient extends $grpc.Client {
     final call = $createCall(_$getUser, $async.Stream.fromIterable([request]),
         options: options);
     return $grpc.ResponseFuture(call);
+  }
+
+  $grpc.ResponseStream<$0.User> getAll($0.Empty request,
+      {$grpc.CallOptions options}) {
+    final call = $createCall(_$getAll, $async.Stream.fromIterable([request]),
+        options: options);
+    return $grpc.ResponseStream(call);
   }
 }
 
@@ -41,6 +52,13 @@ abstract class GrpcTestDemoServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.Username.fromBuffer(value),
         ($0.User value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty, $0.User>(
+        'GetAll',
+        getAll_Pre,
+        false,
+        true,
+        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
+        ($0.User value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.User> getUser_Pre(
@@ -48,5 +66,11 @@ abstract class GrpcTestDemoServiceBase extends $grpc.Service {
     return getUser(call, await request);
   }
 
+  $async.Stream<$0.User> getAll_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.Empty> request) async* {
+    yield* getAll(call, await request);
+  }
+
   $async.Future<$0.User> getUser($grpc.ServiceCall call, $0.Username request);
+  $async.Stream<$0.User> getAll($grpc.ServiceCall call, $0.Empty request);
 }

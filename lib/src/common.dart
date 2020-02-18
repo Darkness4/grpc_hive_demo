@@ -2,9 +2,9 @@ import 'package:grpc_test_demo/src/generated/grpc_test_demo.pb.dart';
 import 'package:hive/hive.dart';
 
 abstract class UserServiceDB {
-  User getUser(int uid);
   User findUserByUsername(String username);
-  List<User> getAll();
+  Iterable<User> getAll();
+  User getUser(int uid);
 }
 
 class UserServiceDBImpl implements UserServiceDB {
@@ -12,24 +12,27 @@ class UserServiceDBImpl implements UserServiceDB {
 
   final Box<User> box;
 
+  factory UserServiceDBImpl(Box<User> box) {
+    return _instance ??= UserServiceDBImpl._internal(box);
+  }
+
   UserServiceDBImpl._internal(this.box);
 
-  factory UserServiceDBImpl(Box box) {
-    return _instance ??= UserServiceDBImpl._internal(box);
+  @override
+  User findUserByUsername(String username) {
+    return box.values.firstWhere(
+      (element) => element.username == username,
+      orElse: () => User()..username = username,
+    );
+  }
+
+  @override
+  Iterable<User> getAll() {
+    return box.values;
   }
 
   @override
   User getUser(int uid) {
     return box.get(uid);
-  }
-
-  @override
-  User findUserByUsername(String username) {
-    return box.values.firstWhere((element) => element.username == username);
-  }
-
-  @override
-  List<User> getAll() {
-    throw box.values.toList();
   }
 }

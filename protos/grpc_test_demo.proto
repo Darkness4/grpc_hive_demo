@@ -9,6 +9,8 @@ package grpctestdemo;
 
 service GrpcTestDemo {
   rpc GetUser(Username) returns (User) {}
+
+  rpc GetAll(Empty) returns (stream User) {}
 }
 
 message Username {
@@ -20,3 +22,5 @@ message User {
   string username = 2;
   bool is_admin = 3;
 }
+
+message Empty {}

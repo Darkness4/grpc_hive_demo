@@ -21,3 +21,7 @@ const User$json = const {
   ],
 };
 
+const Empty$json = const {
+  '1': 'Empty',
+};
+

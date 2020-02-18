@@ -10,6 +10,8 @@ dependencies:
   grpc: ^2.1.3
   protobuf: ^1.0.1
   hive: ^1.4.0+1
+  rxdart: ^0.23.1
+  fixnum: ^0.10.11
 
 dev_dependencies:
   pedantic: ^1.8.0
