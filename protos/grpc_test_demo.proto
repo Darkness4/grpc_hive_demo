@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.grpc_test_demo";
+option java_outer_classname = "GrpcTestDemo";
+option objc_class_prefix = "GTD";
+
+package grpctestdemo;
+
+service GrpcTestDemo {
+  rpc GetUser(Username) returns (User) {}
+}
+
+message Username {
+  string username = 1;
+}
+
+message User {
+  int64 uid = 1;
+  string username = 2;
+  bool is_admin = 3;
+}
