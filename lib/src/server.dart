@@ -30,8 +30,8 @@ class Server {
     final box = await Hive.openBox<User>('userBox');
     await _initialize(box);
 
-    final userServiceDBImpl = UserServiceDBImpl(box);
-    final server = grpc.Server([GrpcHiveDemoService(userServiceDBImpl)]);
+    final UserServiceDB userServiceDB = UserServiceDBImpl(box);
+    final server = grpc.Server([GrpcHiveDemoService(userServiceDB)]);
     await server.serve(address: '127.0.0.1', port: 8080);
     print('Server listening on port ${server.port}...');
 
