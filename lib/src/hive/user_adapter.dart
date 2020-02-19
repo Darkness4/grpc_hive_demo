@@ -1,4 +1,3 @@
-import 'package:fixnum/fixnum.dart';
 import 'package:grpc_hive_demo/src/generated/grpc_hive_demo.pb.dart';
 import 'package:hive/hive.dart';
 
@@ -13,7 +12,7 @@ class UserAdapter extends TypeAdapter<User> {
       for (var i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     final user = User()
-      ..uid = Int64(fields[0] as int) // Ain't going to add an adapter.
+      ..uid = fields[0] as int // Ain't going to add an adapter.
       ..username = fields[1] as String
       ..isAdmin = fields[2] as bool;
     return user;

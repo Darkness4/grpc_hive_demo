@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:fixnum/fixnum.dart';
 import 'package:grpc/grpc.dart' as grpc;
 import 'package:grpc_hive_demo/src/common.dart';
 import 'package:grpc_hive_demo/src/generated/grpc_hive_demo.pbgrpc.dart';
@@ -49,19 +48,19 @@ Future<void> _initialize(Box box) async {
   await box.add(
     User()
       ..username = 'david'
-      ..uid = Int64(0)
+      ..uid = 0
       ..isAdmin = true,
   );
   await box.add(
     User()
       ..username = 'marc'
-      ..uid = Int64(1)
+      ..uid = 1
       ..isAdmin = true,
   );
   await box.add(
     User()
       ..username = 'eric'
-      ..uid = Int64(2)
+      ..uid = 2
       ..isAdmin = false,
   );
 }

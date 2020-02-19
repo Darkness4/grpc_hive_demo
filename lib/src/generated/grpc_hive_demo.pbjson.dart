@@ -15,7 +15,7 @@ const Username$json = const {
 const User$json = const {
   '1': 'User',
   '2': const [
-    const {'1': 'uid', '3': 1, '4': 1, '5': 3, '10': 'uid'},
+    const {'1': 'uid', '3': 1, '4': 1, '5': 5, '10': 'uid'},
     const {'1': 'username', '3': 2, '4': 1, '5': 9, '10': 'username'},
     const {'1': 'is_admin', '3': 3, '4': 1, '5': 8, '10': 'isAdmin'},
   ],

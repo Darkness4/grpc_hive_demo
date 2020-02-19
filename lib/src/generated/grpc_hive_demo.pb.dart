@@ -7,7 +7,6 @@
 
 import 'dart:core' as $core;
 
-import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 class Username extends $pb.GeneratedMessage {
@@ -43,7 +42,7 @@ class Username extends $pb.GeneratedMessage {
 
 class User extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('User', package: const $pb.PackageName('grpchivedemo'), createEmptyInstance: create)
-    ..aInt64(1, 'uid')
+    ..a<$core.int>(1, 'uid', $pb.PbFieldType.O3)
     ..aOS(2, 'username')
     ..aOB(3, 'isAdmin')
     ..hasRequiredFields = false
@@ -65,9 +64,9 @@ class User extends $pb.GeneratedMessage {
   static User _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get uid => $_getI64(0);
+  $core.int get uid => $_getIZ(0);
   @$pb.TagNumber(1)
-  set uid($fixnum.Int64 v) { $_setInt64(0, v); }
+  set uid($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasUid() => $_has(0);
   @$pb.TagNumber(1)

@@ -18,7 +18,7 @@ message Username {
 }
 
 message User {
-  int64 uid = 1;
+  int32 uid = 1;
   string username = 2;
   bool is_admin = 3;
 }
